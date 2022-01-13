@@ -17,7 +17,7 @@ import {
 } from 'slices/product-slice';
 
 export default function ProductList( {productList} ) {
-    const useDispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [productItem, setProductItem] = useState({
         id: 0,
@@ -35,12 +35,12 @@ export default function ProductList( {productList} ) {
     }
 
     const onHandleModalSubmit = () => {
-        useDispatch(updateProduct(productItem));
+        dispatch(updateProduct(productItem));
         setIsModalOpen(false);
     }
 
     const onDeleteClicked = (id) => {
-        useDispatch(deleteProduct(id));
+        dispatch(deleteProduct(id));
     }
 
     return (
